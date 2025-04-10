@@ -5,7 +5,7 @@
 <div class="container py-4">
     <div class="row justify-content-center">
         <div class="col-md-10 text-center mb-5">
-            <h1 class="display-4 fw-bold text-primary mb-3">Akademik Program Yönetimi Sistemi</h1>
+            <h1 class="display-4 fw-bold mb-3">Akademik Program Yönetimi Sistemi</h1>
             <p class="lead mb-5">Üniversite bölümlerinin ders ve sınav programlarını yönetmek için geliştirilmiş modern ve kullanıcı dostu platform.</p>
             
             @if (!User.Identity.IsAuthenticated)
@@ -22,10 +22,10 @@
         </div>
     </div>
     
-    <div class="row mt-3 gx-4 gy-4 justify-content-center fade-in">
+    <div class="row mt-3 gx-4 gy-4 justify-content-center">
         <div class="col-md-4">
-            <div class="card h-100 border-0 shadow">
-                <div class="card-header text-center py-3">
+            <div class="card h-100">
+                <div class="card-header text-center py-3 bg-primary text-white">
                     <i class="bi bi-calendar-week display-6"></i>
                 </div>
                 <div class="card-body">
@@ -39,8 +39,8 @@
         </div>
         
         <div class="col-md-4">
-            <div class="card h-100 border-0 shadow">
-                <div class="card-header text-center py-3">
+            <div class="card h-100">
+                <div class="card-header text-center py-3 bg-primary text-white">
                     <i class="bi bi-person-badge display-6"></i>
                 </div>
                 <div class="card-body">
@@ -56,8 +56,8 @@
         @if (User.IsInRole("BolumBaskani") || User.IsInRole("BolumSekreteri"))
         {
             <div class="col-md-4">
-                <div class="card h-100 border-0 shadow">
-                    <div class="card-header text-center py-3">
+                <div class="card h-100">
+                    <div class="card-header text-center py-3 bg-primary text-white">
                         <i class="bi bi-gear-wide-connected display-6"></i>
                     </div>
                     <div class="card-body">
@@ -84,7 +84,7 @@
     {
         <div class="row mt-5">
             <div class="col-12">
-                <div class="card shadow-sm border-0">
+                <div class="card">
                     <div class="card-body">
                         <h5 class="card-title"><i class="bi bi-lightning-charge me-2"></i>Hızlı Erişim</h5>
                         <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-2">

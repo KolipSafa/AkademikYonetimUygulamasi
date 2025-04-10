@@ -163,3 +163,4 @@ D:\Yeni klasör\AkademikYönetimUygulaması\AkademikProgramYonetimi_Yeni\obj\Deb
 D:\Yeni klasör\AkademikYönetimUygulaması\AkademikProgramYonetimi_Yeni\obj\Debug\net5.0\ref\AkademikProgramYonetimi.dll
 D:\Yeni klasör\AkademikYönetimUygulaması\AkademikProgramYonetimi_Yeni\obj\Debug\net5.0\AkademikProgramYonetimi.pdb
 D:\Yeni klasör\AkademikYönetimUygulaması\AkademikProgramYonetimi_Yeni\obj\Debug\net5.0\AkademikProgramYonetimi.genruntimeconfig.cache
+D:\Yeni klasör\AkademikYönetimUygulaması\AkademikProgramYonetimi_Yeni\obj\Debug\net5.0\AkademikProgramYonetimi.csproj.AssemblyReference.cache
