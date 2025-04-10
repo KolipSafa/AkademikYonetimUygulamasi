@@ -1,0 +1,65 @@
+@model IEnumerable<AkademikProgramYonetimi.Models.Ders>
+
+@{
+    ViewData["Title"] = "Dersler";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h1>@ViewData["Title"]</h1>
+    <a asp-action="Create" class="btn btn-primary">
+        <i class="bi bi-plus-circle"></i> Yeni Ders Ekle
+    </a>
+</div>
+
+<div class="card shadow-sm">
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>@Html.DisplayNameFor(model => model.DersKodu)</th>
+                        <th>@Html.DisplayNameFor(model => model.DersAdi)</th>
+                        <th>@Html.DisplayNameFor(model => model.Kredi)</th>
+                        <th>@Html.DisplayNameFor(model => model.AKTS)</th>
+                        <th>@Html.DisplayNameFor(model => model.Donem)</th>
+                        <th width="15%">İşlemler</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@Html.DisplayFor(modelItem => item.DersKodu)</td>
+                            <td>@Html.DisplayFor(modelItem => item.DersAdi)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Kredi)</td>
+                            <td>@Html.DisplayFor(modelItem => item.AKTS)</td>
+                            <td>@Html.DisplayFor(modelItem => item.Donem)</td>
+                            <td>
+                                <div class="btn-group" role="group">
+                                    <a asp-action="Edit" asp-route-id="@item.Id" class="btn btn-outline-primary btn-sm">
+                                        <i class="bi bi-pencil"></i>
+                                    </a>
+                                    <a asp-action="Details" asp-route-id="@item.Id" class="btn btn-outline-info btn-sm">
+                                        <i class="bi bi-info-circle"></i>
+                                    </a>
+                                    <a asp-action="Delete" asp-route-id="@item.Id" class="btn btn-outline-danger btn-sm">
+                                        <i class="bi bi-trash"></i>
+                                    </a>
+                                </div>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        
+        @if (!Model.Any())
+        {
+            <div class="alert alert-info text-center">
+                <i class="bi bi-info-circle fs-1 d-block mb-2"></i>
+                <p>Henüz kayıtlı ders bulunmamaktadır.</p>
+                <a asp-action="Create" class="btn btn-primary mt-2">Yeni Ders Ekle</a>
+            </div>
+        }
+    </div>
+</div> 

@@ -1,0 +1,46 @@
+@{
+    ViewData["Title"] = "Ana Sayfa";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Akademik Program Yönetimi Sistemi</h1>
+    <p class="lead">Üniversite bölümlerinin ders ve sınav programlarını yönetmek için geliştirilmiş bir platform.</p>
+    
+    <div class="row mt-5">
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Ders Programları</h5>
+                    <p class="card-text">Haftalık ders programlarını yönetin ve görüntüleyin.</p>
+                    <a asp-controller="DersProgrami" asp-action="Index" class="btn btn-primary">Programları Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-4">
+            <div class="card mb-4 shadow-sm">
+                <div class="card-body">
+                    <h5 class="card-title">Öğretim Elemanı Programları</h5>
+                    <p class="card-text">Öğretim elemanlarının ders programlarını yönetin.</p>
+                    <a asp-controller="DersProgrami" asp-action="OgretimElemaniProgram" class="btn btn-primary">Programları Görüntüle</a>
+                </div>
+            </div>
+        </div>
+        
+        @if (User.IsInRole("BolumBaskani") || User.IsInRole("BolumSekreteri"))
+        {
+            <div class="col-md-4">
+                <div class="card mb-4 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">Ders ve Derslik Yönetimi</h5>
+                        <p class="card-text">Dersler, derslikler ve öğretim elemanlarını yönetin.</p>
+                        <div class="btn-group">
+                            <a asp-controller="Ders" asp-action="Index" class="btn btn-outline-primary me-2">Dersler</a>
+                            <a asp-controller="Derslik" asp-action="Index" class="btn btn-outline-primary">Derslikler</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div> 

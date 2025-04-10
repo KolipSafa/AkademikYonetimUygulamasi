@@ -1,0 +1,41 @@
+@using Microsoft.AspNetCore.Identity
+@using AkademikProgramYonetimi.Models
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle"></i> @UserManager.GetUserAsync(User).Result.TamAd
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            @if (User.IsInRole("BolumBaskani"))
+            {
+                <li><span class="dropdown-item-text fw-bold text-primary">Bölüm Başkanı</span></li>
+            }
+            else if (User.IsInRole("BolumSekreteri"))
+            {
+                <li><span class="dropdown-item-text fw-bold text-primary">Bölüm Sekreteri</span></li>
+            }
+            else if (User.IsInRole("OgretimElemani"))
+            {
+                <li><span class="dropdown-item-text fw-bold text-primary">Öğretim Elemanı</span></li>
+            }
+            <li><hr class="dropdown-divider"></li>
+            <li>
+                <form class="form-inline" asp-area="" asp-controller="Account" asp-action="Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+                    <button type="submit" class="dropdown-item">Çıkış Yap</button>
+                </form>
+            </li>
+        </ul>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">Giriş Yap</a>
+    </li>
+}
+</ul> 

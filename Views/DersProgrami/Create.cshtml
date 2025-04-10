@@ -1,0 +1,130 @@
+@model AkademikProgramYonetimi.Models.DersProgrami
+
+@{
+    ViewData["Title"] = "Yeni Ders Programı Ekle";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">@ViewData["Title"]</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DersId" class="form-label">Ders</label>
+                                <select asp-for="DersId" class="form-select" asp-items="ViewBag.Dersler">
+                                    <option value="">Seçiniz...</option>
+                                </select>
+                                <span asp-validation-for="DersId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Donem" class="form-label"></label>
+                                <select asp-for="Donem" class="form-select">
+                                    <option value="">Seçiniz...</option>
+                                    <option value="Güz">Güz</option>
+                                    <option value="Bahar">Bahar</option>
+                                    <option value="Yaz">Yaz</option>
+                                </select>
+                                <span asp-validation-for="Donem" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DerslikId" class="form-label">Derslik</label>
+                                <select asp-for="DerslikId" class="form-select" asp-items="ViewBag.Derslikler">
+                                    <option value="">Seçiniz...</option>
+                                </select>
+                                <span asp-validation-for="DerslikId" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="OgretimElemaniId" class="form-label">Öğretim Elemanı</label>
+                                <select asp-for="OgretimElemaniId" class="form-select" asp-items="ViewBag.OgretimElemanlari">
+                                    <option value="">Seçiniz...</option>
+                                </select>
+                                <span asp-validation-for="OgretimElemaniId" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="Gun" class="form-label"></label>
+                                <select asp-for="Gun" class="form-select" asp-items="ViewBag.Gunler">
+                                    <option value="">Seçiniz...</option>
+                                </select>
+                                <span asp-validation-for="Gun" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="BaslangicSaati" class="form-label"></label>
+                                <input asp-for="BaslangicSaati" type="time" class="form-control" />
+                                <span asp-validation-for="BaslangicSaati" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="form-group">
+                                <label asp-for="BitisSaati" class="form-label"></label>
+                                <input asp-for="BitisSaati" type="time" class="form-control" />
+                                <span asp-validation-for="BitisSaati" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="OgrenciSayisi" class="form-label"></label>
+                                <input asp-for="OgrenciSayisi" class="form-control" />
+                                <span asp-validation-for="OgrenciSayisi" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Notlar" class="form-label"></label>
+                                <textarea asp-for="Notlar" class="form-control" rows="2"></textarea>
+                                <span asp-validation-for="Notlar" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Geri Dön
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Kaydet
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="card-footer bg-light">
+                <div class="alert alert-info mb-0">
+                    <h5><i class="bi bi-info-circle"></i> Bilgi:</h5>
+                    <ul class="mb-0">
+                        <li>Sistem otomatik olarak çakışmaları kontrol edecektir.</li>
+                        <li>Derslik kapasitesinin öğrenci sayısına uygun olduğundan emin olun.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 

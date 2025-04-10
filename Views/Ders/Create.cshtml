@@ -1,0 +1,89 @@
+@model AkademikProgramYonetimi.Models.Ders
+
+@{
+    ViewData["Title"] = "Yeni Ders Ekle";
+}
+
+<div class="row">
+    <div class="col-md-8 offset-md-2">
+        <div class="card shadow-sm">
+            <div class="card-header bg-primary text-white">
+                <h4 class="mb-0">@ViewData["Title"]</h4>
+            </div>
+            <div class="card-body">
+                <form asp-action="Create">
+                    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DersKodu" class="form-label"></label>
+                                <input asp-for="DersKodu" class="form-control" />
+                                <span asp-validation-for="DersKodu" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="DersAdi" class="form-label"></label>
+                                <input asp-for="DersAdi" class="form-control" />
+                                <span asp-validation-for="DersAdi" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Kredi" class="form-label"></label>
+                                <input asp-for="Kredi" class="form-control" />
+                                <span asp-validation-for="Kredi" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="AKTS" class="form-label"></label>
+                                <input asp-for="AKTS" class="form-control" />
+                                <span asp-validation-for="AKTS" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="Donem" class="form-label"></label>
+                                <select asp-for="Donem" class="form-select">
+                                    <option value="">Seçiniz...</option>
+                                    <option value="Güz">Güz</option>
+                                    <option value="Bahar">Bahar</option>
+                                    <option value="Yaz">Yaz</option>
+                                </select>
+                                <span asp-validation-for="Donem" class="text-danger"></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label asp-for="OnKosul" class="form-label"></label>
+                                <input asp-for="OnKosul" class="form-control" />
+                                <span asp-validation-for="OnKosul" class="text-danger"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between mt-4">
+                        <a asp-action="Index" class="btn btn-secondary">
+                            <i class="bi bi-arrow-left"></i> Geri Dön
+                        </a>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="bi bi-save"></i> Kaydet
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+} 
