@@ -6,37 +6,55 @@
     <title>@ViewData["Title"] - Akademik Program Yönetimi</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-lg navbar-dark mb-4">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Akademik Program Yönetimi</a>
+                <a class="navbar-brand d-flex align-items-center" asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="bi bi-book me-2"></i>
+                    <span>Akademik Program Yönetimi</span>
+                </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
+                <div class="navbar-collapse collapse d-lg-inline-flex justify-content-between">
+                    <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index">Ana Sayfa</a>
+                            <a class="nav-link @(ViewContext.RouteData.Values["Controller"].ToString() == "Home" && ViewContext.RouteData.Values["Action"].ToString() == "Index" ? "active" : "")" 
+                               asp-area="" asp-controller="Home" asp-action="Index">
+                                <i class="bi bi-house-door me-1"></i> Ana Sayfa
+                            </a>
                         </li>
                         
                         @if (User.Identity.IsAuthenticated)
                         {
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="#" id="programDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Ders Programı
+                                <a class="nav-link dropdown-toggle @(ViewContext.RouteData.Values["Controller"].ToString() == "DersProgrami" ? "active" : "")" 
+                                   href="#" id="programDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-calendar-week me-1"></i> Ders Programı
                                 </a>
-                                <ul class="dropdown-menu" aria-labelledby="programDropdown">
-                                    <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="Index">Tüm Programlar</a></li>
-                                    <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="HaftalikProgram">Haftalık Program</a></li>
-                                    <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="OgretimElemaniProgram">Öğretim Elemanı Programı</a></li>
+                                <ul class="dropdown-menu fade-in" aria-labelledby="programDropdown">
+                                    <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="Index">
+                                        <i class="bi bi-grid me-2"></i>Tüm Programlar</a>
+                                    </li>
+                                    <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="HaftalikProgram">
+                                        <i class="bi bi-calendar3 me-2"></i>Haftalık Program</a>
+                                    </li>
+                                    <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="OgretimElemaniProgram">
+                                        <i class="bi bi-person-vcard me-2"></i>Öğretim Elemanı Programı</a>
+                                    </li>
                                     @if (User.IsInRole("BolumBaskani") || User.IsInRole("BolumSekreteri"))
                                     {
                                         <li><hr class="dropdown-divider"></li>
-                                        <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="Create">Yeni Program Ekle</a></li>
+                                        <li><a class="dropdown-item" asp-controller="DersProgrami" asp-action="Create">
+                                            <i class="bi bi-plus-circle me-2"></i>Yeni Program Ekle</a>
+                                        </li>
                                     }
                                 </ul>
                             </li>
@@ -44,13 +62,22 @@
                             @if (User.IsInRole("BolumBaskani") || User.IsInRole("BolumSekreteri"))
                             {
                                 <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="yonetimDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                        Yönetim
+                                    <a class="nav-link dropdown-toggle @(ViewContext.RouteData.Values["Controller"].ToString() == "Ders" || 
+                                                                        ViewContext.RouteData.Values["Controller"].ToString() == "Derslik" || 
+                                                                        ViewContext.RouteData.Values["Controller"].ToString() == "OgretimElemani" ? "active" : "")" 
+                                       href="#" id="yonetimDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <i class="bi bi-gear me-1"></i> Yönetim
                                     </a>
-                                    <ul class="dropdown-menu" aria-labelledby="yonetimDropdown">
-                                        <li><a class="dropdown-item" asp-controller="Ders" asp-action="Index">Dersler</a></li>
-                                        <li><a class="dropdown-item" asp-controller="Derslik" asp-action="Index">Derslikler</a></li>
-                                        <li><a class="dropdown-item" asp-controller="OgretimElemani" asp-action="Index">Öğretim Elemanları</a></li>
+                                    <ul class="dropdown-menu fade-in" aria-labelledby="yonetimDropdown">
+                                        <li><a class="dropdown-item" asp-controller="Ders" asp-action="Index">
+                                            <i class="bi bi-journal-bookmark me-2"></i>Dersler</a>
+                                        </li>
+                                        <li><a class="dropdown-item" asp-controller="Derslik" asp-action="Index">
+                                            <i class="bi bi-building me-2"></i>Derslikler</a>
+                                        </li>
+                                        <li><a class="dropdown-item" asp-controller="OgretimElemani" asp-action="Index">
+                                            <i class="bi bi-people me-2"></i>Öğretim Elemanları</a>
+                                        </li>
                                     </ul>
                                 </li>
                             }
@@ -61,17 +88,45 @@
             </div>
         </nav>
     </header>
+    
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-5 mb-4">
+            @if (TempData["SuccessMessage"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <i class="bi bi-check-circle me-2"></i> @TempData["SuccessMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            
+            @if (TempData["ErrorMessage"] != null)
+            {
+                <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                    <i class="bi bi-exclamation-triangle me-2"></i> @TempData["ErrorMessage"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            }
+            
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="footer">
         <div class="container">
-            &copy; @DateTime.Now.Year - Akademik Program Yönetimi - <a asp-area="" asp-controller="Home" asp-action="Privacy">Gizlilik</a>
+            <div class="d-flex justify-content-between align-items-center">
+                <div>&copy; @DateTime.Now.Year - Akademik Program Yönetimi</div>
+                <div>
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy" class="me-3">
+                        <i class="bi bi-shield-lock me-1"></i> Gizlilik
+                    </a>
+                    <a href="#" onclick="window.scrollTo({top: 0, behavior: 'smooth'});">
+                        <i class="bi bi-arrow-up-circle me-1"></i> Yukarı
+                    </a>
+                </div>
+            </div>
         </div>
     </footer>
+    
     <script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

@@ -5532,14 +5532,14 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\Yeni klasör\\ders_çalışma\\AkademikProgramYonetimi_Yeni\\AkademikProgramYonetimi.csproj",
+      "projectUniqueName": "D:\\Yeni klasör\\AkademikYönetimUygulaması\\AkademikProgramYonetimi_Yeni\\AkademikProgramYonetimi.csproj",
       "projectName": "AkademikProgramYonetimi",
-      "projectPath": "D:\\Yeni klasör\\ders_çalışma\\AkademikProgramYonetimi_Yeni\\AkademikProgramYonetimi.csproj",
+      "projectPath": "D:\\Yeni klasör\\AkademikYönetimUygulaması\\AkademikProgramYonetimi_Yeni\\AkademikProgramYonetimi.csproj",
       "packagesPath": "C:\\Users\\safak\\.nuget\\packages\\",
-      "outputPath": "D:\\Yeni klasör\\ders_çalışma\\AkademikProgramYonetimi_Yeni\\obj\\",
+      "outputPath": "D:\\Yeni klasör\\AkademikYönetimUygulaması\\AkademikProgramYonetimi_Yeni\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "D:\\Yeni klasör\\ders_çalışma\\AkademikProgramYonetimi_Yeni\\NuGet.Config",
+        "D:\\Yeni klasör\\AkademikYönetimUygulaması\\AkademikProgramYonetimi_Yeni\\NuGet.Config",
         "C:\\Users\\safak\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\DevExpress 22.2.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"

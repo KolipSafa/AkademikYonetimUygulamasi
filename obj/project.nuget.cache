@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "xs98Z2V4W9qObRIbTjgL5uniR2j3bb64Zbm8XrbWbDqqANiAM3YNsD+g/eJKX4vSUlXNtBk6Bi0juTMPLcvgqQ==",
+  "dgSpecHash": "VPgbbvWc8ZuCGqx9K2Xt4YnOWdtkfsQrgEuNJEaW+5gVouIZ/GYmzauxKhpuwZEunF5cW1zs3qoLA3M3KMupEg==",
   "success": true,
-  "projectFilePath": "D:\\Yeni klasör\\ders_çalışma\\AkademikProgramYonetimi_Yeni\\AkademikProgramYonetimi.csproj",
+  "projectFilePath": "D:\\Yeni klasör\\AkademikYönetimUygulaması\\AkademikProgramYonetimi_Yeni\\AkademikProgramYonetimi.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\safak\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\safak\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.17\\microsoft.aspnetcore.authentication.jwtbearer.5.0.17.nupkg.sha512",
