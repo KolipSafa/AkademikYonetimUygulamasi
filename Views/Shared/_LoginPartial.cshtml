@@ -7,28 +7,27 @@
 @if (SignInManager.IsSignedIn(User))
 {
     <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            <i class="bi bi-person-circle me-2"></i>
-            <span>@UserManager.GetUserAsync(User).Result.TamAd</span>
+        <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="bi bi-person-circle me-2"></i>@UserManager.GetUserAsync(User).Result.TamAd
         </a>
-        <ul class="dropdown-menu dropdown-menu-end shadow fade-in" aria-labelledby="userDropdown">
-            <li class="px-3 py-2 d-flex align-items-center">
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+            <li class="px-3 py-2">
                 <div class="d-flex flex-column">
-                    <span class="fw-semibold">@UserManager.GetUserAsync(User).Result.TamAd</span>
-                    <span class="text-muted small">@UserManager.GetUserAsync(User).Result.Email</span>
+                    <span class="fw-bold">@UserManager.GetUserAsync(User).Result.TamAd</span>
+                    <span class="small text-muted">@UserManager.GetUserAsync(User).Result.Email</span>
                 </div>
             </li>
             @if (User.IsInRole("BolumBaskani"))
             {
-                <li><span class="dropdown-item-text text-primary"><i class="bi bi-shield-fill me-2"></i>Bölüm Başkanı</span></li>
+                <li><span class="dropdown-item"><i class="bi bi-shield-fill me-2"></i>Bölüm Başkanı</span></li>
             }
             else if (User.IsInRole("BolumSekreteri"))
             {
-                <li><span class="dropdown-item-text text-primary"><i class="bi bi-person-badge-fill me-2"></i>Bölüm Sekreteri</span></li>
+                <li><span class="dropdown-item"><i class="bi bi-person-badge-fill me-2"></i>Bölüm Sekreteri</span></li>
             }
             else if (User.IsInRole("OgretimElemani"))
             {
-                <li><span class="dropdown-item-text text-primary"><i class="bi bi-mortarboard-fill me-2"></i>Öğretim Elemanı</span></li>
+                <li><span class="dropdown-item"><i class="bi bi-mortarboard-fill me-2"></i>Öğretim Elemanı</span></li>
             }
             <li><hr class="dropdown-divider"></li>
             <li>
@@ -50,7 +49,7 @@
 else
 {
     <li class="nav-item">
-        <a class="nav-link d-flex align-items-center" asp-area="" asp-controller="Account" asp-action="Login">
+        <a class="nav-link" asp-area="" asp-controller="Account" asp-action="Login">
             <i class="bi bi-box-arrow-in-right me-2"></i>Giriş Yap
         </a>
     </li>

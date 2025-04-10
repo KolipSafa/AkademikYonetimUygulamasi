@@ -3,35 +3,35 @@
 }
 
 <div class="container py-4">
-    <div class="row justify-content-center">
-        <div class="col-md-10 text-center mb-5">
-            <h1 class="display-4 fw-bold mb-3">Akademik Program Yönetimi Sistemi</h1>
-            <p class="lead mb-5">Üniversite bölümlerinin ders ve sınav programlarını yönetmek için geliştirilmiş modern ve kullanıcı dostu platform.</p>
-            
-            @if (!User.Identity.IsAuthenticated)
-            {
-                <div class="d-flex justify-content-center gap-3 mt-3">
-                    <a asp-controller="Account" asp-action="Login" class="btn btn-primary">
-                        <i class="bi bi-box-arrow-in-right me-2"></i> Giriş Yap
-                    </a>
-                    <a asp-controller="Home" asp-action="Privacy" class="btn btn-outline-primary">
-                        <i class="bi bi-info-circle me-2"></i> Daha Fazla Bilgi
-                    </a>
-                </div>
-            }
-        </div>
+    <div class="text-center mb-5">
+        <h1 class="display-4">Akademik Program Yönetimi Sistemi</h1>
+        <p class="lead">Üniversite bölümlerinin ders ve sınav programlarını yönetmek için geliştirilmiş modern ve kullanıcı dostu platform.</p>
+        
+        @if (!User.Identity.IsAuthenticated)
+        {
+            <div class="d-flex justify-content-center gap-3 mt-3">
+                <a asp-controller="Account" asp-action="Login" class="btn btn-primary btn-lg">
+                    <i class="bi bi-box-arrow-in-right me-2"></i> Giriş Yap
+                </a>
+                <a asp-controller="Home" asp-action="Privacy" class="btn btn-outline-primary btn-lg">
+                    <i class="bi bi-info-circle me-2"></i> Daha Fazla Bilgi
+                </a>
+            </div>
+        }
     </div>
     
-    <div class="row mt-3 gx-4 gy-4 justify-content-center">
+    <div class="row g-4">
         <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-header text-center py-3 bg-primary text-white">
+            <div class="card bg-primary text-white h-100">
+                <div class="card-header text-center">
                     <i class="bi bi-calendar-week display-6"></i>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Ders Programları</h5>
+                    <h5 class="card-title text-center">Ders Programları</h5>
                     <p class="card-text">Haftalık ders programlarını kolayca görüntüleyin ve yönetin. Çakışmaları otomatik olarak tespit edin.</p>
-                    <a asp-controller="DersProgrami" asp-action="Index" class="btn btn-primary w-100">
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="DersProgrami" asp-action="Index" class="btn btn-light w-100">
                         <i class="bi bi-arrow-right me-2"></i> Programları Görüntüle
                     </a>
                 </div>
@@ -39,14 +39,16 @@
         </div>
         
         <div class="col-md-4">
-            <div class="card h-100">
-                <div class="card-header text-center py-3 bg-primary text-white">
+            <div class="card bg-secondary text-white h-100">
+                <div class="card-header text-center">
                     <i class="bi bi-person-badge display-6"></i>
                 </div>
                 <div class="card-body">
-                    <h5 class="card-title">Öğretim Elemanı Programları</h5>
+                    <h5 class="card-title text-center">Öğretim Elemanı Programları</h5>
                     <p class="card-text">Öğretim elemanlarının ders programlarını optimize edin ve takip edin. Verimli çalışma saatleri oluşturun.</p>
-                    <a asp-controller="DersProgrami" asp-action="OgretimElemaniProgram" class="btn btn-primary w-100">
+                </div>
+                <div class="card-footer text-center">
+                    <a asp-controller="DersProgrami" asp-action="OgretimElemaniProgram" class="btn btn-light w-100">
                         <i class="bi bi-arrow-right me-2"></i> Programları Görüntüle
                     </a>
                 </div>
@@ -56,21 +58,23 @@
         @if (User.IsInRole("BolumBaskani") || User.IsInRole("BolumSekreteri"))
         {
             <div class="col-md-4">
-                <div class="card h-100">
-                    <div class="card-header text-center py-3 bg-primary text-white">
+                <div class="card bg-success text-white h-100">
+                    <div class="card-header text-center">
                         <i class="bi bi-gear-wide-connected display-6"></i>
                     </div>
                     <div class="card-body">
-                        <h5 class="card-title">Ders ve Derslik Yönetimi</h5>
+                        <h5 class="card-title text-center">Ders ve Derslik Yönetimi</h5>
                         <p class="card-text">Dersler, derslikler ve öğretim elemanlarını etkin şekilde yönetin. Kolay erişim, hızlı düzenleme.</p>
+                    </div>
+                    <div class="card-footer">
                         <div class="d-grid gap-2">
-                            <a asp-controller="Ders" asp-action="Index" class="btn btn-outline-primary">
+                            <a asp-controller="Ders" asp-action="Index" class="btn btn-light">
                                 <i class="bi bi-journal-bookmark me-2"></i> Dersler
                             </a>
-                            <a asp-controller="Derslik" asp-action="Index" class="btn btn-outline-primary">
+                            <a asp-controller="Derslik" asp-action="Index" class="btn btn-light">
                                 <i class="bi bi-building me-2"></i> Derslikler
                             </a>
-                            <a asp-controller="OgretimElemani" asp-action="Index" class="btn btn-outline-primary">
+                            <a asp-controller="OgretimElemani" asp-action="Index" class="btn btn-light">
                                 <i class="bi bi-people me-2"></i> Öğretim Elemanları
                             </a>
                         </div>
@@ -85,28 +89,30 @@
         <div class="row mt-5">
             <div class="col-12">
                 <div class="card">
+                    <div class="card-header">
+                        <h5 class="mb-0"><i class="bi bi-lightning-charge me-2"></i>Hızlı Erişim</h5>
+                    </div>
                     <div class="card-body">
-                        <h5 class="card-title"><i class="bi bi-lightning-charge me-2"></i>Hızlı Erişim</h5>
-                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3 mt-2">
+                        <div class="row row-cols-1 row-cols-md-2 row-cols-lg-4 g-3">
                             <div class="col">
-                                <a asp-controller="DersProgrami" asp-action="HaftalikProgram" class="btn btn-light w-100 py-3 border">
+                                <a asp-controller="DersProgrami" asp-action="HaftalikProgram" class="btn btn-primary w-100 py-3">
                                     <i class="bi bi-calendar3 me-2"></i> Haftalık Program
                                 </a>
                             </div>
                             <div class="col">
-                                <a asp-controller="DersProgrami" asp-action="OgretimElemaniProgram" class="btn btn-light w-100 py-3 border">
+                                <a asp-controller="DersProgrami" asp-action="OgretimElemaniProgram" class="btn btn-primary w-100 py-3">
                                     <i class="bi bi-person-vcard me-2"></i> Öğretim Elemanı Programı
                                 </a>
                             </div>
                             @if (User.IsInRole("BolumBaskani") || User.IsInRole("BolumSekreteri"))
                             {
                                 <div class="col">
-                                    <a asp-controller="DersProgrami" asp-action="Create" class="btn btn-light w-100 py-3 border">
+                                    <a asp-controller="DersProgrami" asp-action="Create" class="btn btn-success w-100 py-3">
                                         <i class="bi bi-plus-circle me-2"></i> Yeni Program Ekle
                                     </a>
                                 </div>
                                 <div class="col">
-                                    <a asp-controller="Ders" asp-action="Create" class="btn btn-light w-100 py-3 border">
+                                    <a asp-controller="Ders" asp-action="Create" class="btn btn-success w-100 py-3">
                                         <i class="bi bi-plus-square me-2"></i> Yeni Ders Ekle
                                     </a>
                                 </div>
